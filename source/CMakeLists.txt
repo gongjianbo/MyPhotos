@@ -18,6 +18,10 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 qt_add_executable(MyPhotos main.cpp)
 
+if(WIN32)
+    target_sources(MyPhotos PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/Resource/mp_icon.rc)
+endif()
+
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an
 # explicit, fixed bundle identifier manually though.
