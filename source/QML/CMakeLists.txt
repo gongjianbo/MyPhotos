@@ -11,6 +11,15 @@ qt_add_qml_module(myphotos_qml
     QML_FILES ${QML_FILES}
 )
 
+target_link_libraries(myphotos_qml PRIVATE
+    Qt6::Core
+    Qt6::Gui
+    Qt6::Qml
+    Qt6::Quick
+    myphotos_core
+    myphotos_manager
+)
+
 set_target_properties(myphotos_qml PROPERTIES
     PUBLIC_HEADER "${QML_FILES}"
 )

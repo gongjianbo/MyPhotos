@@ -3,6 +3,7 @@
 #include <QQmlContext>
 #include "MPCore.h"
 #include "CoreRegister.h"
+#include "ManagerRegister.h"
 
 int main(int argc, char *argv[])
 {
@@ -18,6 +19,7 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
     MyPhotos::Core::registerType(&engine);
+    MyPhotos::Manager::registerType(&engine);
 
     QObject::connect(
         &engine,

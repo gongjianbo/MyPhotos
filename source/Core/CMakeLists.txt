@@ -11,12 +11,13 @@ set(CORE_SOURCES
     MPApplication.cpp
 )
 
+find_package(Qt6 REQUIRED COMPONENTS Core Gui Quick)
+
 add_library(myphotos_core ${CORE_SOURCES})
 
 target_link_libraries(myphotos_core PRIVATE
     Qt6::Core
     Qt6::Gui
-    Qt6::Qml
     Qt6::Quick
 )
 
