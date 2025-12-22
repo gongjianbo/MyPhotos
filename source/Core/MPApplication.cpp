@@ -146,12 +146,12 @@ void MPApplication::init(const QString &targetName)
     QNetworkProxy::setApplicationProxy(QNetworkProxy::NoProxy);
 }
 
-QString MPApplication::getAppName() const
+QString MPApplication::appName() const
 {
     return MP_APP_NAME;
 }
 
-QString MPApplication::getModuleName() const
+QString MPApplication::moduleName() const
 {
     return applicationName();
 }

@@ -1,12 +1,14 @@
 project(myphotos_core)
 
-set(CORE_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR})
+set(CORE_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_SOURCE_DIR})
 
 set(CORE_SOURCES
     CoreRegister.h
     MPCoreDef.h
     MPCore.h
     MPCore.cpp
+    MPConfig.h
+    MPConfig.cpp
     MPApplication.h
     MPApplication.cpp
 )

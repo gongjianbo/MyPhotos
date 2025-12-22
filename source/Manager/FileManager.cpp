@@ -1,12 +1,14 @@
 #include "FileManager.h"
 #include <QCoreApplication>
 #include <QtConcurrentRun>
+#include <QThreadPool>
 #include <QFileInfo>
 #include <QDir>
 #include <QFile>
 #include <QImageReader>
 #include <QUuid>
 #include <QDebug>
+#include "Core/MPConfig.h"
 
 FileManager::FileManager(QObject *parent)
     : QObject{parent}
@@ -19,18 +21,16 @@ FileManager::~FileManager()
 
 }
 
-FileManager *FileManager::getInstance()
+FileManager *FileManager::instance()
 {
-    static FileManager instance;
-    return &instance;
+    static FileManager obj;
+    return &obj;
 }
 
 void FileManager::importFiles(const QList<QUrl> &urls)
 {
     qDebug() << __FUNCTION__ << urls.size();
-    QtConcurrent::run([urls]{
-        QString dir_t = QString("%1/Data/Files/%2").arg(qApp->applicationDirPath());
-
+    QThreadPool::globalInstance()->start([urls]{
         for (int i = 0; i < urls.size(); ++i)
         {
             auto src_path = urls.at(i).toLocalFile();
@@ -38,7 +38,7 @@ void FileManager::importFiles(const QList<QUrl> &urls)
             auto birth_time = info.birthTime().toString("yyyy-MM-dd");
             auto modify_time = info.lastModified().toString("yyyy-MM-dd");
             qDebug() << "\t[info]" << i << birth_time << modify_time;
-            auto dir_path = dir_t.arg(modify_time);
+            auto dir_path = MPConfig::instance()->common()->storageDirPath(modify_time);
             QDir dir(dir_path);
             if (!dir.exists()) {
                 dir.mkpath(dir_path);

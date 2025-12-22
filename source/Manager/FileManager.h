@@ -15,7 +15,7 @@ private:
     explicit FileManager(QObject *parent = nullptr);
 public:
     ~FileManager();
-    static FileManager* getInstance();
+    static FileManager* instance();
 
     Q_INVOKABLE void importFiles(const QList<QUrl> &urls);
 };

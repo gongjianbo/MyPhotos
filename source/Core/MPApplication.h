@@ -17,8 +17,8 @@ class MPApplicationPrivate;
 class MPApplication : public QGuiApplication
 {
     Q_OBJECT
-    Q_PROPERTY(QString appName READ getAppName CONSTANT)
-    Q_PROPERTY(QString moduleName READ getModuleName CONSTANT)
+    Q_PROPERTY(QString appName READ appName CONSTANT)
+    Q_PROPERTY(QString moduleName READ moduleName CONSTANT)
 public:
     MPApplication(int &argc, char **argv);
     // 析构的时候执行重启动作
@@ -28,10 +28,10 @@ public:
     static void init(const QString &targetName);
 
     // 主程序名
-    QString getAppName() const;
+    QString appName() const;
 
     // 子程序模块名
-    QString getModuleName() const;
+    QString moduleName() const;
 
     // 退出qApp，并标记为重启
     Q_INVOKABLE static void restartApp();

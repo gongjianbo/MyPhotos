@@ -1,8 +1,9 @@
 #pragma once
 #include <QQmlEngine>
 #include <QQmlContext>
-#include "MPCore.h"
 #include "MPApplication.h"
+#include "MPCore.h"
+#include "MPConfig.h"
 
 namespace MyPhotos
 {
