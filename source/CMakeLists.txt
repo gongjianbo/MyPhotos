@@ -29,6 +29,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/../bin/App)
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/../bin/App)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/../bin/App)
 add_subdirectory(Core)
+add_subdirectory(DataAccess)
 add_subdirectory(Manager)
 add_subdirectory(QML)
 
@@ -55,6 +56,7 @@ target_link_libraries(MyPhotos PRIVATE
     Qt6::Qml
     Qt6::Quick
     myphotos_core
+    myphotos_dataaccess
     myphotos_manager
     myphotos_qml
 )

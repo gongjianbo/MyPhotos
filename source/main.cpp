@@ -4,6 +4,7 @@
 #include "MPCore.h"
 #include "Core/MPConfig.h"
 #include "CoreRegister.h"
+#include "DataAccessRegister.h"
 #include "ManagerRegister.h"
 
 int main(int argc, char *argv[])
@@ -19,9 +20,11 @@ int main(int argc, char *argv[])
     // 根据主程序位置确定其他文件位置
     MPConfig::instance()->setAppDirPath(app.applicationDirPath());
     MPCore::hello();
+    FileInfoAccess::instance()->ready();
 
     QQmlApplicationEngine engine;
     MyPhotos::Core::registerType(&engine);
+    MyPhotos::DataAccess::registerType(&engine);
     MyPhotos::Manager::registerType(&engine);
 
     QObject::connect(

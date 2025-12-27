@@ -40,7 +40,7 @@ QString MPConfig::configFilePath(int module) const
 {
     switch (module)
     {
-    default: return QString("%1/settings.ini").arg(configDirPath());
+    default: return QString("%1/Configure.ini").arg(configDirPath());
     }
 }
 
@@ -70,7 +70,7 @@ QString CommonConfigGroup::dbDirPath() const
 
 QString CommonConfigGroup::dbFilePath() const
 {
-    return QString("%1/fileinfo.db").arg(dbDirPath());
+    return QString("%1/FileInfo.db").arg(dbDirPath());
 }
 
 QString CommonConfigGroup::storageDirPath(const QString &date) const

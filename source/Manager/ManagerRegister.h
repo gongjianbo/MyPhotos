@@ -9,7 +9,7 @@ namespace MyPhotos
 namespace Manager
 {
 
-void registerType(QQmlEngine *engine)
+inline void registerType(QQmlEngine *engine)
 {
     engine->setObjectOwnership(FileManager::instance(), QQmlEngine::CppOwnership);
     qmlRegisterSingletonType<FileManager>(
